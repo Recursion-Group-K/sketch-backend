@@ -9,3 +9,5 @@ media
 .vscode
 .DS_store
 env
+.env
+.venv
