@@ -7,6 +7,7 @@ class DrawingList(generics.ListAPIView):
   queryset = Drawing.objects.all()
   serializer_class = DrawingSerializer
   permissions_classes = [permissions.IsAuthenticated]
+  filter_fields = ('user', 'mode')
 
 class DrawingCreate(generics.CreateAPIView):
   queryset = Drawing.objects.all()
