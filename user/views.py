@@ -6,16 +6,11 @@ from rest_framework import generics, permissions
 from user.permission import UserObjPersmission
 
 # Create your views here.
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  permissions_classes = [permissions.IsAuthenticated]
+  permissions_classes = [permissions.IsAuthenticatedOrReadOnly]
   filter_fields = ('is_superuser', 'is_active')
-
-class UserCreate(generics.CreateAPIView):
-  queryset = User.objects.all()
-  serializer_class = UserSerializer
-  permissions_class = [permissions.IsAuthenticatedOrReadOnly, UserObjPersmission]
 
   # def highlight(self, request, *args, **kwargs):
   #   return Response(request.user)
