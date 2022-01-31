@@ -23,11 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # moved to local_settings.py
+SECRET_KEY = 'local'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -105,8 +106,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'localhost:8080',
-    'sketch-skgl.herokuapp.com/'
+    'http://127.0.0.1',
+    'https://sketch-skgl.herokuapp.com'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
