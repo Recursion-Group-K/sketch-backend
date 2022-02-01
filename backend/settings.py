@@ -103,8 +103,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'localhost:8080',
-    'sketch-skgl.herokuapp.com/'
+    'http://localhost:8080',
+    'https://sketch-skgl.herokuapp.com'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
