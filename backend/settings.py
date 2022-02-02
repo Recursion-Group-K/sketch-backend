@@ -112,11 +112,11 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8080',
-    'https://sketch-skgl.herokuapp.com'
-]
-
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:8080',
+#     'https://sketch-skgl.herokuapp.com'
+# ]
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'backend.urls'
@@ -224,4 +224,3 @@ if not DEBUG:
 
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES['default'].update(db_from_env)
-
