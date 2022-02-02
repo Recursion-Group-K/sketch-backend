@@ -13,7 +13,7 @@ from django.db.models import (
 # Create your models here.
 class Drawing(Model):
   title = CharField(max_length=128)
-  image = ImageField(upload_to='blah', default='path/to/my/default/image.jpg')
+  image = ImageField(upload_to="image/", default='path/to/my/default/image.jpg')
   data = JSONField(blank=False)
   is_public = BooleanField(default=False)
   created_at = DateTimeField(auto_now_add=True)
