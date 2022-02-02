@@ -14,6 +14,6 @@ user_highlight = UserViewSet.as_view({
 
 urlpatterns = [
   path('users/', user_list, name='user_list'),
-  path('users/<int:pk>/', views.UserRetrieveUpdateDestroy.as_view()),
+  path('users/<int:pk>/', views.UserRetrieveUpdateDestroy.as_view(), name='user_detail'),
   path('current_user/', user_highlight, name='user_highlight'),
 ]
