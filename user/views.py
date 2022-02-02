@@ -14,8 +14,8 @@ class UserViewSet(viewsets.ModelViewSet):
   permissions_classes = [permissions.IsAuthenticatedOrReadOnly]
   filter_fields = ('is_superuser', 'is_active')
 
-  @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
-  def highlight(self, request, *args, **kwargs):
+  @action(detail=True)
+  def current_user(self, request, *args, **kwargs):
     serializer = UserSerializer(request.user)
     return JsonResponse(serializer.data)
 
@@ -27,4 +27,3 @@ class UserRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
   permissions_classes = [UserObjPersmission]
-
