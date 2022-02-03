@@ -1,17 +1,16 @@
 from django.http import JsonResponse
 from .models import User
 from .serializer import UserSerializer
-from rest_framework import generics, permissions, renderers, viewsets
+from rest_framework import generics, renderers, viewsets
 from rest_framework.decorators import action
-from user.permission import UserObjPersmission
-
+from user.permission import CustomUserPersmission
 
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  permissions_classes = [permissions.IsAuthenticatedOrReadOnly]
+  permissions_classes = [CustomUserPersmission]
   filter_fields = ('is_superuser', 'is_active')
 
   @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
@@ -26,5 +25,5 @@ class UserViewSet(viewsets.ModelViewSet):
 class UserRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  permissions_classes = [UserObjPersmission]
+  permissions_classes = [CustomUserPersmission]
 
