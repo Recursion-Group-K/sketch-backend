@@ -3,6 +3,7 @@ from .models import User
 from .serializer import UserSerializer
 from rest_framework import generics, permissions, renderers, viewsets
 from rest_framework.decorators import action
+from rest_framework.response import Response
 from user.permission import UserObjPersmission
 
 
@@ -18,10 +19,6 @@ class UserViewSet(viewsets.ModelViewSet):
   def current_user(self, request, *args, **kwargs):
     serializer = UserSerializer(request.user)
     return JsonResponse(serializer.data)
-
-  def perform_create(self, serializer):
-    data = serializer.data
-    return User.objects.create_user(**data)
 
 class UserRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
   queryset = User.objects.all()
