@@ -3,5 +3,5 @@ from drawing import views
 
 urlpatterns = [
   path('', views.DrawingList.as_view()),
-  path('<int:pk>/', views.DrawingRetrieveUpdate.as_view())
+  path('<int:pk>/', views.DrawingRetrieveUpdateDetroy.as_view())
 ]

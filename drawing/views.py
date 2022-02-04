@@ -13,9 +13,9 @@ class DrawingList(generics.ListCreateAPIView):
 
   def perform_create(self, serializer):
     # data = serializer.data
-    return serializer.save(user=self.request.user)
+    return serializer.save(user=self.request.user, user_id=self.request.user.id)
 
-class DrawingRetrieveUpdate(generics.RetrieveUpdateAPIView):
+class DrawingRetrieveUpdateDetroy(generics.RetrieveUpdateDestroyAPIView):
   queryset = Drawing.objects.all()
   serializer_class = DrawingSerializer
   permissions_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
