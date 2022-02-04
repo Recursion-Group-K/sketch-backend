@@ -9,7 +9,7 @@ class DrawingList(generics.ListCreateAPIView):
   queryset = Drawing.objects.all()
   serializer_class = DrawingSerializer
   permissions_classes = [permissions.IsAuthenticatedOrReadOnly]
-  filter_fields = ('user', 'mode')
+  filter_fields = ('user', 'mode', 'is_public')
 
   def perform_create(self, serializer):
     # data = serializer.data
@@ -19,4 +19,3 @@ class DrawingRetrieveUpdate(generics.RetrieveUpdateAPIView):
   queryset = Drawing.objects.all()
   serializer_class = DrawingSerializer
   permissions_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
-
