@@ -33,7 +33,10 @@ SECRET_KEY = 'local'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://sketch-skgl.herokuapp.com']
+ALLOWED_HOSTS = [
+    'https://sketch-skgl.herokuapp.com',
+    'https://sketch-skgl-server.herokuapp.com'
+]
 
 
 # Application definition
@@ -113,7 +116,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    'https://sketch-skgl.herokuapp.com'
+    'https://sketch-skgl.herokuapp.com',
+    'https://sketch-skgl-server.herokuapp.com'
 ]
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
