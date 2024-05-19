@@ -26,6 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+env = environ.Env()
+env.read_env('.env')
+
+SECRET_KEY = env('SECRET_KEY', default='local')
+
 # 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -198,13 +203,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-env = environ.Env()
-env.read_env('.env')
-
-SECRET_KEY = env('SECRET_KEY', default='local')
-
 
 CLOUDINARY_STORAGE  = {
     'CLOUD_NAME':env('CLOUDINARY_NAME', default=''),
