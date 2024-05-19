@@ -10,4 +10,4 @@ media
 .DS_store
 env
 .env
-.venv
+venv
