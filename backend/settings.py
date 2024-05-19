@@ -26,10 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# moved to local_settings.py
-SECRET_KEY = 'local'
-
+# 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -206,6 +203,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 env = environ.Env()
 env.read_env('.env')
 
+SECRET_KEY = env('SECRET_KEY', default='local')
+
+
 CLOUDINARY_STORAGE  = {
     'CLOUD_NAME':env('CLOUDINARY_NAME', default=''),
     'API_KEY': env('CLOUDINARY_API_KEY', default=''),
@@ -221,7 +221,6 @@ except ImportError:
     pass
 
 if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
 
