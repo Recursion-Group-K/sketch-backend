@@ -36,8 +36,8 @@ SECRET_KEY = env('SECRET_KEY', default='local')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://sketch-skgl.herokuapp.com',
-    'https://sketch-skgl-server.herokuapp.com'
+    'localhost',
+    'herokuapp.com',
 ]
 
 
@@ -219,6 +219,7 @@ except ImportError:
     pass
 
 if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
     import django_heroku
     django_heroku.settings(locals())
 
