@@ -35,10 +35,7 @@ SECRET_KEY = env('SECRET_KEY', default='local')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    'herokuapp.com',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
